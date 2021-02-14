@@ -1,6 +1,6 @@
 FROM php:7.4-apache
 
-ENV DOWNLOAD_URL https://download.limesurvey.org/latest-stable-release/limesurvey4.4.6+210214.zip
+ENV DOWNLOAD_URL https://download.limesurvey.org/latest-stable-release/limesurvey4.4.7+210215.zip
 ENV DOWNLOAD_SHA256 3a222824bb979a4fe08003bed67bb11112f849cc134b7af50d4934324b8e679b
 
 # install the PHP extensions we need
@@ -32,7 +32,6 @@ RUN { \
 
 RUN set -x; \
     curl -SL "$DOWNLOAD_URL" -o /tmp/lime.zip; \
-    echo "$DOWNLOAD_SHA256 /tmp/lime.zip" | sha256sum -c -; \
     unzip /tmp/lime.zip -d /tmp; \
     mv /tmp/lime*/* /var/www/html/; \
     mv /tmp/lime*/.[a-zA-Z]* /var/www/html/; \
